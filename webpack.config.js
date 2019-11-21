@@ -9,6 +9,10 @@ const config = {
         exclude: /node_modules/,
         use: ['babel-loader', 'eslint-loader'],
       },
+      {
+        test: /\.(png|jpg|gif|woff|woff2)$/,
+        use: ['file-loader'],
+      },
     ],
   },
   resolve: {
