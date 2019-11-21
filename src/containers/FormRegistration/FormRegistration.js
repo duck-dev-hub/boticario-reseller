@@ -9,7 +9,7 @@ import MessageError from '../../components/MessageError';
 
 const FormRegistration = () => {
   return (
-    <FormModal>
+    <FormModal title="Cadastro">
       <InputName content="Nome completo" />
       <InputField type="Text" />
       <InputName content="CPF" />
@@ -20,8 +20,8 @@ const FormRegistration = () => {
       <InputField type="password" />
       <InputName content="Confirmar senha" />
       <InputField type="password" />
-      <MainButton content="Cadastrar" />
-      <LinkForm content="Entrar" />
+      <MainButton Primary content="Cadastrar" />
+      <LinkForm to="/" content="Entrar" />
       <MessageError content="Erro desconhecido" />
     </FormModal>
   );
