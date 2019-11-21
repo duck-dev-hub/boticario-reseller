@@ -7,19 +7,24 @@ import LinkForm from '../../components/LinkForm';
 import MainButton from '../../components/MainButton';
 import MessageError from '../../components/MessageError';
 
-const FormLogin = () => {
+const FormRegistration = () => {
   return (
-    <FormModal title="Login">
+    <FormModal>
+      <InputName content="Nome completo" />
+      <InputField type="Text" />
+      <InputName content="CPF" />
+      <InputField type="text" />
       <InputName content="Email" />
-      <InputField type="email" required />
+      <InputField type="email" />
       <InputName content="Senha" />
       <InputField type="password" />
-      <LinkForm to="/" content="Esqueceu sua senha?" right="true" />
-      <MainButton Primary type="submit" content="Entrar" />
-      <MessageError content="Error ao realizar login" />
-      <LinkForm to="/cadastro" content="Cadastro" />
+      <InputName content="Confirmar senha" />
+      <InputField type="password" />
+      <MainButton content="Cadastrar" />
+      <LinkForm content="Entrar" />
+      <MessageError content="Erro desconhecido" />
     </FormModal>
   );
 };
 
-export default FormLogin;
+export default FormRegistration;

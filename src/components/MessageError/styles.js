@@ -8,11 +8,15 @@ export const Container = styled.div`
   position: absolute;
   bottom: var(--gap-medium);
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 200%);
   width: 85%;
   background: var(--color-red-lighter);
   border-radius: var(--gap-small);
   border: 1px solid var(--color-red);
+  transition: all 200ms linear;
+  &.-active {
+    transform: translate(-50%, 0%);
+  }
 `;
 
 export const Message = styled.p`
