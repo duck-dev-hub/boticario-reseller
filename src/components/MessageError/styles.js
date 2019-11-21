@@ -14,8 +14,10 @@ export const Container = styled.div`
   border-radius: var(--gap-small);
   border: 1px solid var(--color-red);
   transition: all 200ms linear;
+  display: none;
   &.-active {
     transform: translate(-50%, 0%);
+    display: block;
   }
 `;
 
