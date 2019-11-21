@@ -1,7 +1,15 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Login from '../pages/Login';
 
 const App = () => {
-  return <div>Hello World!</div>;
+  return (
+    <>
+      <BrowserRouter>
+        <Route exact path="/" component={Login} />
+      </BrowserRouter>
+    </>
+  );
 };
 
 export default App;
