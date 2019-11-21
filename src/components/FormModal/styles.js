@@ -11,9 +11,10 @@ export const Form = styled.form`
   background-color: var(--color-white);
   border-radius: var(--gap-smallest);
   padding: var(--gap-medium);
+  position: relative;
   & ${Img} {
     display: block;
-    margin: var(--gap-great) auto;
+    margin: var(--gap-medium) auto;
   }
   & ${Button} {
   }
