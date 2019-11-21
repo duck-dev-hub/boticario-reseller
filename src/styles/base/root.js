@@ -10,7 +10,8 @@ const Root = createGlobalStyle`
         box-sizing: border-box;
         min-height: 100%;
         text-rendering: optimizeLegibility;
-        font-family: 'Work Sans', sans-serif;
+        background-color: var(--color-white);
+        font-family: 'Roboto', sans-serif;
     }
     div[data-js="app"]{
         overflow-x: hidden;
