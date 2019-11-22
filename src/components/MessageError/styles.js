@@ -5,7 +5,7 @@ export const Container = styled.div`
   color: var(--color-red);
   padding: var(--gap-normal);
   margin: 0 auto;
-  position: absolute;
+  position: fixed;
   bottom: var(--gap-medium);
   left: 50%;
   transform: translate(-50%, 200%);
@@ -14,7 +14,6 @@ export const Container = styled.div`
   border-radius: var(--gap-small);
   border: 1px solid var(--color-red);
   transition: all 200ms linear;
-  display: none;
   &.-active {
     transform: translate(-50%, 0%);
     display: block;
