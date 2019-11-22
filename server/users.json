@@ -1,11 +1,1 @@
-{
-  "users": [
-    {
-      "id": 1,
-      "name": "exemple",
-      "cpf": "000.000.000-55",
-      "email": "exemple@email.com",
-      "password": "12345678"
-    }
-  ]
-}
+{"users":[{"id":1,"name":"exemple","cpf":"000.000.000-55","email":"exemple@email.com","password":"12345678"},{"id":2,"email":"roreis99@gmail.com.cosm","password":"rodrigo"},{"id":3,"email":"roreis99@gmail.com","password":"rodrigo"}]}
