@@ -36,11 +36,11 @@ const isAuthenticated = ({ email, password }) => {
 server.post('/auth/register', (req, res) => {
   console.log('register endpoint called; request body:');
 
-  const { email, password } = req.body;
+  const { email, password, name, cpf } = req.body;
 
   if (isAuthenticated({ email, password }) === true) {
     const status = 401;
-    const message = 'Email and Password already exist';
+    const message = 'O email e a senha já cadastrados';
 
     res.status(status).json({ status, message });
     return;
@@ -61,6 +61,8 @@ server.post('/auth/register', (req, res) => {
 
     data.users.push({
       id: LIST_ITEM_ID + 1,
+      name,
+      cpf,
       email,
       password,
     }); 
@@ -90,7 +92,7 @@ server.post('/auth/login', (req, res) => {
 
   if (isAuthenticated({ email, password }) === false) {
     const status = 401;
-    const message = 'Incorrect email or password';
+    const message = 'Email ou senha incorretos';
     res.status(status).json({ status, message });
     return;
   }
