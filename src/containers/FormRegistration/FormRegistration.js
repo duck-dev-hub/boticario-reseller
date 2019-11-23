@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import maskField from '../../helpers/maskField';
 
 import FormModal from '../../components/FormModal/FormModal';
 import InputField from '../../components/InputField';
@@ -9,14 +11,14 @@ import MessageError from '../../components/MessageError';
 
 const FormRegistration = () => {
   // const [name, setName] = useState('');
-  // const [cpf, setCpf] = useState('');
+  const [cpf, setCpf] = useState('');
   // const [email, setEmail] = useState('');
   // const [emailVerified, setEmailVerified] = useState('');
   // const [password, setPassword] = useState('');
 
   const handleRegistry = ev => {
     ev.preventDefault();
-    console.log('foo');
+    console.log('foo', cpf);
   };
 
   return (
@@ -27,7 +29,9 @@ const FormRegistration = () => {
       <InputField
         type="text"
         placeholder="000.000.000-00"
-        // onChange={e => setCpf(e.target.value)}
+        onKeyUp={e => maskField(e.target, '000.000.000-00', e)}
+        onChange={e => setCpf(e.target.value)}
+        maxLength="14"
       />
       <InputName content="Email" />
       <InputField type="email" placeholder="exemplo@exemplo.com.br" />
