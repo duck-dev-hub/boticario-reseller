@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Axios from 'axios';
 
 import maskField from '../../helpers/maskField';
 
@@ -17,26 +18,50 @@ const FormRegistration = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState('');
   const [activeError, setActiveError] = useState('');
-  const [activeSuccess, setActiveSucess] = useState('');
+  const [activeSuccess, setActiveSuccess] = useState('');
+
+  const registerUser = async () => {
+    const endpoint = 'http://localhost:8000/auth/register';
+    try {
+      const response = await Axios.post(endpoint, {
+        name,
+        cpf,
+        email,
+        password,
+      });
+      const { data } = response;
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log('bar', error);
+      return false;
+    }
+  };
 
   const handleRegistry = ev => {
     ev.preventDefault();
     if (password !== confirmPassword) {
+      setActiveSuccess('');
       setActiveError('-active');
       setMessage('Senhas não são iguais');
-      return;
+    } else if (cpf.length < 13) {
+      setActiveSuccess('');
+      setActiveError('-active');
+      setMessage('CPF inválido');
+    } else if (password.length < 6) {
+      setActiveSuccess('');
+      setActiveError('-active');
+      setMessage('Senha muito fraca tente outra');
+    } else {
+      registerUser();
+      setMessage('Cadastro realizado com sucesso!');
+      setActiveError('');
+      setActiveSuccess('-active');
     }
-    setActiveSucess('-active');
-    setMessage('Cadastro realizado com sucesso!');
-    console.log('name', name);
-    console.log('cpf', cpf);
-    console.log('email', email);
-    console.log('password', password);
-    console.log('confirm Password', confirmPassword);
   };
 
   return (
-    <FormModal onSubmit={handleRegistry} title="Cadastro">
+    <FormModal onSubmit={ev => handleRegistry(ev)} title="Cadastro">
       <InputName content="Nome completo" />
       <InputField
         type="Text"
@@ -87,7 +112,7 @@ const FormRegistration = () => {
         className={activeSuccess}
         content={message}
         activeSuccess={activeSuccess}
-        setActiveSuccess={setActiveSucess}
+        setActiveSuccess={setActiveSuccess}
         Success
       />
     </FormModal>
