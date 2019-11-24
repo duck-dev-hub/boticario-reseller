@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+// import { Redirect } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import Axios from 'axios';
 
 import FormModal from '../../components/FormModal/FormModal';
@@ -8,6 +10,8 @@ import LinkForm from '../../components/LinkForm';
 import MainButton from '../../components/MainButton';
 
 const FormLogin = () => {
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -19,7 +23,11 @@ const FormLogin = () => {
         password,
       });
       const { data } = response;
-      console.log('foo', data);
+      dispatch({
+        type: 'LOG_IN',
+        userEmail: email,
+        userToken: data.ACCESS_TOKEN,
+      });
       return data;
     } catch (error) {
       console.log('bar', error);
@@ -29,12 +37,14 @@ const FormLogin = () => {
 
   const handleLogin = ev => {
     ev.preventDefault();
-    console.log('eae');
     getUser();
   };
 
   return (
     <FormModal onSubmit={ev => handleLogin(ev)} title="Login">
+      {useSelector(state =>
+        state.userLogged === true ? console.log(state) : null,
+      )}
       <InputName content="Email" />
       <InputField
         type="email"
