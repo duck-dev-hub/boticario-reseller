@@ -8,8 +8,9 @@ const Main = styled.main`
   background-image: url(${BgcMobile});
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
   width: 100vw;
+  height: calc(100vh + 70px);
+  padding-top: ${rem('70px')};
   ${flexCentered};
   & ${Button} {
     margin-top: ${rem('25px')};

@@ -8,6 +8,10 @@ export const Header = styled.header`
   height: ${rem('70px')};
   background-color: var(--color-green-aqua);
   padding: 0 var(--gap-great);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
   ${flexSpaced};
 `;
 

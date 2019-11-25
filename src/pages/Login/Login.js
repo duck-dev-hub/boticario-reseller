@@ -5,17 +5,23 @@ import { useSelector } from 'react-redux';
 import { Main } from './styles';
 
 import FormLogin from '../../containers/FormLogin/FormLogin';
+import MainHeader from '../../containers/MainHeader';
+import MainFooter from '../../containers/MainFooter';
 
 const Login = () => {
   return (
-    <Main>
-      {useSelector(state =>
-        state.userLogged === true
-          ? console.log('Is logged', state)
-          : console.log('not logged'),
-      )}
-      <FormLogin />
-    </Main>
+    <>
+      <MainHeader />
+      <Main>
+        {useSelector(state =>
+          state.userLogged === true
+            ? console.log('Is logged', state)
+            : console.log('not logged'),
+        )}
+        <FormLogin />
+      </Main>
+      <MainFooter />
+    </>
   );
 };
 
