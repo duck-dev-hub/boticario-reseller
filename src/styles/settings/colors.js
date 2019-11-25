@@ -11,6 +11,7 @@ const GlobalColors = css`
     --color-green-lighter: #89c84c;
     --color-green-darken: #2db87b;
     --color-green-darker: #199f67;
+    --color-green-aqua: #00a499;
     --color-pink: #ef4659;
 
     --color-red: #ff0000;

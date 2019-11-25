@@ -6,7 +6,7 @@ export const Main = styled.main`
   background-image: url(${BgcMobile});
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: calc(100vh - 70px);
   width: 100vw;
   ${flexCentered};
 `;
