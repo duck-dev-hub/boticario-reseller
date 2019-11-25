@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// import { Redirect } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Axios from 'axios';
 
 import FormModal from '../../components/FormModal/FormModal';
@@ -23,12 +22,11 @@ const FormLogin = () => {
         password,
       });
       const { data } = response;
-      dispatch({
+      return dispatch({
         type: 'LOG_IN',
         userEmail: email,
         userToken: data.ACCESS_TOKEN,
       });
-      return data;
     } catch (error) {
       console.log('bar', error);
       return false;
@@ -42,9 +40,6 @@ const FormLogin = () => {
 
   return (
     <FormModal onSubmit={ev => handleLogin(ev)} title="Login">
-      {useSelector(state =>
-        state.userLogged === true ? console.log(state) : null,
-      )}
       <InputName content="Email" />
       <InputField
         type="email"
