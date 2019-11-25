@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { Main } from './styles';
@@ -14,9 +14,7 @@ const Login = () => {
       <MainHeader />
       <Main>
         {useSelector(state =>
-          state.userLogged === true
-            ? console.log('Is logged', state)
-            : console.log('not logged'),
+          state.userLogged === true ? <Redirect to="/" /> : null,
         )}
         <FormLogin />
       </Main>

@@ -10,7 +10,7 @@ const Root = createGlobalStyle`
         box-sizing: border-box;
         min-height: 100%;
         text-rendering: optimizeLegibility;
-        background-color: var(--color-white);
+        background-color: var(--color-gray-lighter-2);
         font-family: 'Roboto', sans-serif;
     }
     div[data-js="app"]{

@@ -16,7 +16,7 @@ const Button = styled.button`
       text-transform: uppercase;
       letter-spacing: ${rem('1px')};
       padding: var(--gap-medium);
-      border-radius: var(--gap-smallest);
+      border-radius: ${rem('30px')};
       cursor: pointer;
     `}
   /* ${({ Secondary }) =>

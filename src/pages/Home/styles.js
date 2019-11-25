@@ -11,7 +11,8 @@ export const Container = styled.section`
   background-image: url(${Banner});
   background-size: 100%;
   background-repeat: no-repeat;
-  height: calc(100vh - 70px);
+  height: 100vh;
+  margin-top: ${rem('70px')};
   display: flex;
   align-items: flex-end;
 `;
@@ -25,7 +26,6 @@ export const Content = styled.div`
     margin-top: ${rem('150px')};
   }
   & ${Button} {
-    border-radius: ${rem('30px')};
     margin-top: var(--gap-medium);
   }
 `;
@@ -36,5 +36,3 @@ export const Text = styled.p`
   font-weight: 500;
   color: var(--color-white);
 `;
-
-export const p = [];
