@@ -6,7 +6,7 @@ import Button from '../MainButton/styles';
 
 export const Form = styled.form`
   ${flexColumn};
-  width: 75%;
+  width: 85%;
   ${center}
   background-color: var(--color-white);
   border-radius: var(--gap-smallest);

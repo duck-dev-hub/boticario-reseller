@@ -26,7 +26,6 @@ A couple of things to watch out for:
     white-space: normal;
     background: none;
     line-height: 1;
-
     font-size: 13px;
     font-family: Arial;
   }

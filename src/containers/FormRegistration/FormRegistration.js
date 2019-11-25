@@ -68,7 +68,7 @@ const FormRegistration = () => {
   return (
     <>
       {sucess ? (
-        <Redirect to="/" />
+        <Redirect to="/login" />
       ) : (
         <FormModal
           onSubmit={ev => handleRegistry(ev)}
@@ -112,7 +112,7 @@ const FormRegistration = () => {
             required
           />
           <MainButton Primary type="submit" content="Cadastrar" />
-          <LinkForm to="/" content="Entrar" />
+          <LinkForm to="/login" content="Entrar" />
           <MessageModal
             className={activeError}
             content={message}
