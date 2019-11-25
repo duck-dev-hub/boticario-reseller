@@ -40,9 +40,9 @@ server.post('/auth/register', (req, res) => {
 
   if (isAuthenticated({ email, password }) === true) {
     const status = 401;
-    const message = 'O email e a senha já cadastrados';
-
-    res.status(status).json({ status, message });
+    const message = 'Email e a senha já cadastrados';
+    console.log(message);
+    res.status(status).json({ status, bar: message });
     return;
   }
 

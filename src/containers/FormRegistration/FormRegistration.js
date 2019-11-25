@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import Axios from 'axios';
 
 import maskField from '../../helpers/maskField';
@@ -19,6 +20,7 @@ const FormRegistration = () => {
   const [message, setMessage] = useState('');
   const [activeError, setActiveError] = useState('');
   const [activeSuccess, setActiveSuccess] = useState('');
+  const [sucess, setSucess] = useState(false);
 
   const registerUser = async () => {
     const endpoint = 'http://localhost:8000/auth/register';
@@ -30,10 +32,16 @@ const FormRegistration = () => {
         password,
       });
       const { data } = response;
-      console.log(data);
+      setActiveSuccess('-active');
+      setMessage('Cadastro realizado com sucesso!');
+      setTimeout(() => {
+        setSucess(true);
+      }, 1000);
       return data;
     } catch (error) {
       console.log('bar', error);
+      setActiveError('-active');
+      setMessage('Email e senha já cadastrados');
       return false;
     }
   };
@@ -54,68 +62,74 @@ const FormRegistration = () => {
       setMessage('Senha muito fraca tente outra');
     } else {
       registerUser();
-      setMessage('Cadastro realizado com sucesso!');
-      setActiveError('');
-      setActiveSuccess('-active');
     }
   };
 
   return (
-    <FormModal onSubmit={ev => handleRegistry(ev)} title="Cadastro">
-      <InputName content="Nome completo" />
-      <InputField
-        type="Text"
-        placeholder="Digite seu nome"
-        required="required"
-        onChange={e => setName(e.target.value)}
-      />
-      <InputName content="CPF" />
-      <InputField
-        type="text"
-        placeholder="000.000.000-00"
-        onKeyUp={e => maskField(e.target, '000.000.000-00', e)}
-        onChange={e => setCpf(e.target.value)}
-        maxLength="14"
-        required="required"
-      />
-      <InputName content="Email" />
-      <InputField
-        type="email"
-        placeholder="exemplo@exemplo.com.br"
-        onChange={e => setEmail(e.target.value)}
-        required="required"
-      />
-      <InputName content="Senha" />
-      <InputField
-        type="password"
-        placeholder="************"
-        onChange={e => setPassword(e.target.value)}
-        required="required"
-      />
-      <InputName content="Confirmar senha" />
-      <InputField
-        type="password"
-        placeholder="************"
-        onChange={e => setConfirmPassword(e.target.value)}
-        required
-      />
-      <MainButton Primary type="submit" content="Cadastrar" />
-      <LinkForm to="/" content="Entrar" />
-      <MessageModal
-        className={activeError}
-        content={message}
-        activeError={activeError}
-        setActiveError={setActiveError}
-        Error
-      />
-      <MessageModal
-        className={activeSuccess}
-        content={message}
-        activeSuccess={activeSuccess}
-        setActiveSuccess={setActiveSuccess}
-        Success
-      />
-    </FormModal>
+    <>
+      {sucess ? (
+        <Redirect to="/" />
+      ) : (
+        <FormModal
+          onSubmit={ev => handleRegistry(ev)}
+          title="Cadastro"
+        >
+          <InputName content="Nome completo" />
+          <InputField
+            type="Text"
+            placeholder="Digite seu nome"
+            required="required"
+            onChange={e => setName(e.target.value)}
+          />
+          <InputName content="CPF" />
+          <InputField
+            type="text"
+            placeholder="000.000.000-00"
+            onKeyUp={e => maskField(e.target, '000.000.000-00', e)}
+            onChange={e => setCpf(e.target.value)}
+            maxLength="14"
+            required="required"
+          />
+          <InputName content="Email" />
+          <InputField
+            type="email"
+            placeholder="exemplo@exemplo.com.br"
+            onChange={e => setEmail(e.target.value)}
+            required="required"
+          />
+          <InputName content="Senha" />
+          <InputField
+            type="password"
+            placeholder="************"
+            onChange={e => setPassword(e.target.value)}
+            required="required"
+          />
+          <InputName content="Confirmar senha" />
+          <InputField
+            type="password"
+            placeholder="************"
+            onChange={e => setConfirmPassword(e.target.value)}
+            required
+          />
+          <MainButton Primary type="submit" content="Cadastrar" />
+          <LinkForm to="/" content="Entrar" />
+          <MessageModal
+            className={activeError}
+            content={message}
+            activeError={activeError}
+            setActiveError={setActiveError}
+            Error
+          />
+          <MessageModal
+            className={activeSuccess}
+            content={message}
+            activeSuccess={activeSuccess}
+            setActiveSuccess={setActiveSuccess}
+            Success
+          />
+        </FormModal>
+      )}
+    </>
   );
 };
 

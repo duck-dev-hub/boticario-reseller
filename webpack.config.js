@@ -15,6 +15,10 @@ const config = {
       },
     ],
   },
+  devServer: {
+    historyApiFallback: true,
+    inline: true,
+  },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
   },
