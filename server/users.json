@@ -1,11 +1,1 @@
-{
-  "users": [
-    {
-      "id": 1,
-      "name": "exemple",
-      "cpf": "000.000.000-55",
-      "email": "exemple@email.com",
-      "password": "12345678"
-    }
-  ]
-}
+{"users":[{"id":1,"name":"exemple","cpf":"000.000.000-55","email":"exemple@email.com","password":"12345678"},{"id":2,"name":"Rodrigo Reis","cpf":"475.566.858-10","email":"roreis99@gmail.com","password":"cocodevaca"},{"id":3,"name":"rorei","cpf":"939.399.999-99","email":"roliveirajr0122@gmail.com","password":"cocodevaca"},{"id":4,"name":"rorei","cpf":"939.399.999-99","email":"roliveirajr0122@gmail.com3","password":"cocodevaca"},{"id":5,"name":"rorei","cpf":"939.399.999-99","email":"roliveirajr0122@gmail.com33","password":"cocodevaca"},{"id":6,"name":"43243423423","cpf":"423.423.423-42","email":"roliveirajr01@gmail.com","password":"cocodevaca"},{"id":7,"name":"roreis99@gmail.com","cpf":"393.923.992-39","email":"roliveirajr01@2gmail.com","password":"cocodevaca"},{"id":8,"name":"3244","cpf":"433.424.334-34","email":"roliveirajr01@sgddmail.com","password":"cocodevaca"},{"id":9,"name":"roreis99@gmakdwoqd.com","cpf":"030.303.003-00","email":"rore2922@gmail.com","password":"cocodevaca"},{"id":10,"name":"reokokokokokok","cpf":"032.949.230-94","email":"koqwkdqkowqk@gokmail.com","password":"cocodevaca"},{"id":11,"name":"Rodrigo Reis","cpf":"320.023.032-03","email":"rodrigo@gmail.com","password":"cocodevaca"},{"id":12,"name":"dwdqwdqw","cpf":"333.444.444-4","email":"rodrigo@gmail.com","password":"103333"},{"id":13,"name":"Rodrigo Reis","cpf":"475.577.858-10","email":"rodrigoreis@gmail.com","password":"cocodevaca"}]}

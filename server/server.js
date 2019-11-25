@@ -4,33 +4,26 @@ const jsonServer = require('json-server');
 const jwt = require('jsonwebtoken');
 
 const server = jsonServer.create();
-const router = jsonServer.router('./database.json');
-const userdb = JSON.parse(
-  fs.readFileSync('./server/users.json', 'UTF-8'),
-);
+const router = jsonServer.router('./server/database.json');
 
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 server.use(jsonServer.defaults());
 
 const SECRET_KEY = '123456789';
-
 const expiresIn = '1h';
 
-// Create a token from a payload
-function createToken(payload) {
+const createToken = payload => {
   return jwt.sign(payload, SECRET_KEY, { expiresIn });
 }
 
-// Verify the token
-function verifyToken(token) {
+const verifyToken = token => {
   return jwt.verify(token, SECRET_KEY, (err, decode) =>
     decode !== undefined ? decode : err,
   );
 }
 
-// Check if the user exists in database
-function isAuthenticated({ email, password }) {
+const isAuthenticated = ({ email, password }) => {
   return (
     JSON.parse(
       fs.readFileSync('./server/users.json', 'UTF-8'),
@@ -40,15 +33,16 @@ function isAuthenticated({ email, password }) {
   );
 }
 
-// Register New User
 server.post('/auth/register', (req, res) => {
   console.log('register endpoint called; request body:');
-  const { email, password } = req.body;
+
+  const { email, password, name, cpf } = req.body;
 
   if (isAuthenticated({ email, password }) === true) {
     const status = 401;
-    const message = 'Email and Password already exist';
-    res.status(status).json({ status, message });
+    const message = 'Email e a senha já cadastrados';
+    console.log(message);
+    res.status(status).json({ status, bar: message });
     return;
   }
 
@@ -60,23 +54,23 @@ server.post('/auth/register', (req, res) => {
       return;
     }
 
-    // Get current users data
     var data = JSON.parse(data.toString());
 
-    // Get the id of last user
-    const last_item_id = data.users[data.users.length - 1].id;
-    console.log(last_item_id);
-    // Add new user
+    const LIST_ITEM_ID = data.users[data.users.length - 1].id;
+    console.log(LIST_ITEM_ID);
+
     data.users.push({
-      id: last_item_id + 1,
+      id: LIST_ITEM_ID + 1,
+      name,
+      cpf,
       email,
       password,
-    }); // add some data
+    }); 
+
     const writeData = fs.writeFile(
       './server/users.json',
       JSON.stringify(data),
-      (err, result) => {
-        // WRITE
+      (err) => {
         if (err) {
           const status = 401;
           const message = err;
@@ -86,13 +80,11 @@ server.post('/auth/register', (req, res) => {
     );
   });
 
-  // Create token for new user
-  const access_token = createToken({ email, password });
-  console.log(`Access Token:${access_token}`);
-  res.status(200).json({ access_token });
+  const ACCESS_TOKEN = createToken({ email, password });
+  console.log(`Access Token:${ACCESS_TOKEN}`);
+  res.status(200).json({ ACCESS_TOKEN });
 });
 
-// Login to one of the users from ./users.json
 server.post('/auth/login', (req, res) => {
   console.log('login endpoint called; request body:');
 
@@ -100,14 +92,14 @@ server.post('/auth/login', (req, res) => {
 
   if (isAuthenticated({ email, password }) === false) {
     const status = 401;
-    const message = 'Incorrect email or password';
+    const message = 'Email ou senha incorretos';
     res.status(status).json({ status, message });
     return;
   }
 
-  const access_token = createToken({ email, password });
-  console.log(`Access Token:${access_token}`);
-  res.status(200).json({ access_token });
+  const ACCESS_TOKEN = createToken({ email, password });
+  console.log(`Access Token:${ACCESS_TOKEN}`);
+  res.status(200).json({ ACCESS_TOKEN });
 });
 
 server.use(/^(?!\/auth).*$/, (req, res, next) => {
@@ -117,6 +109,7 @@ server.use(/^(?!\/auth).*$/, (req, res, next) => {
   ) {
     const status = 401;
     const message = 'Error in authorization format';
+    
     res.status(status).json({ status, message });
     return;
   }
@@ -129,13 +122,15 @@ server.use(/^(?!\/auth).*$/, (req, res, next) => {
     if (verifyTokenResult instanceof Error) {
       const status = 401;
       const message = 'Access token not provided';
+
       res.status(status).json({ status, message });
       return;
     }
     next();
   } catch (err) {
     const status = 401;
-    const message = 'Error access_token is revoked';
+    const message = 'Error access token is revoked';
+  
     res.status(status).json({ status, message });
   }
 });
@@ -144,4 +139,8 @@ server.use(router);
 
 server.listen(8000, () => {
   console.log('Run Auth API Server');
+
+  console.log('http://localhost:8000/auth/login');
+  console.log('http://localhost:8000/auth/register');
+  console.log('http://localhost:8000/auth/login/shopping');
 });

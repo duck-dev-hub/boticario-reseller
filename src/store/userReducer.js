@@ -1,7 +1,5 @@
 const INITIAL_STATE = {
   userEmail: '',
-  userCpf: '',
-  userPassword: '',
   userToken: '',
   userLogged: false,
 };
@@ -12,18 +10,15 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         userLogged: true,
-        userEmail: action.userEmail,
-        userCpf: action.userEmail,
-        userPassword: action.userEmail,
         userToken: action.userToken,
+        userEmail: action.userEmail,
       };
     case 'LOG_OUT':
       return {
         ...state,
         userLogged: false,
         userEmail: '',
-        userCpf: '',
-        userPassword: '',
+        userToken: '',
       };
     default:
       return state;

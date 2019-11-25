@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Axios from 'axios';
 
 import FormModal from '../../components/FormModal/FormModal';
@@ -6,9 +7,10 @@ import InputField from '../../components/InputField';
 import InputName from '../../components/InputName';
 import LinkForm from '../../components/LinkForm';
 import MainButton from '../../components/MainButton';
-import MessageError from '../../components/MessageError';
 
 const FormLogin = () => {
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,8 +22,11 @@ const FormLogin = () => {
         password,
       });
       const { data } = response;
-      console.log('foo', data);
-      return data;
+      return dispatch({
+        type: 'LOG_IN',
+        userEmail: email,
+        userToken: data.ACCESS_TOKEN,
+      });
     } catch (error) {
       console.log('bar', error);
       return false;
@@ -30,7 +35,6 @@ const FormLogin = () => {
 
   const handleLogin = ev => {
     ev.preventDefault();
-    console.log('eae');
     getUser();
   };
 
@@ -50,7 +54,6 @@ const FormLogin = () => {
       />
       <LinkForm to="/" content="Esqueceu sua senha?" right="true" />
       <MainButton Primary type="submit" content="Entrar" />
-      <MessageError content="Error ao realizar login" />
       <LinkForm to="/cadastro" content="Cadastro" />
     </FormModal>
   );
