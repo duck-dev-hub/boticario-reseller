@@ -113,7 +113,7 @@ const FormRegistration = () => {
             required={true}
           />
           <MainButton
-            Primary="true"
+            primary="true"
             type="submit"
             content="Cadastrar"
           />

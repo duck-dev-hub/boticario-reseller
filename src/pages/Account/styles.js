@@ -26,8 +26,8 @@ export const Card = styled.div`
     &:not(:last-of-type) {
       margin-bottom: var(--gap-small);
     }
-    &:nth-child(3) {
-      margin-bottom: ${rem('30px')};
+    &:nth-child(4) {
+      margin-top: ${rem('30px')};
     }
     > dt {
       font-size: var(--font-normal);

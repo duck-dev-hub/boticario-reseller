@@ -1,32 +1,18 @@
 {
   "shopping": [
     {
-      "code": "1999",
-      "price": "R$1,000",
-      "date": "04/19",
+      "code": "999x",
+      "price": "R$100",
+      "date": "09/19",
       "authId": "login",
       "id": 1
     },
     {
-      "code": "30000x",
-      "price": "R$80",
-      "date": "07/18",
+      "code": "999xx",
+      "price": "R$88",
+      "date": "08/19",
       "authId": "login",
       "id": 2
-    },
-    {
-      "code": "300039",
-      "price": "R$120",
-      "date": "09/20",
-      "authId": "login",
-      "id": 3
-    },
-    {
-      "code": "1999x",
-      "price": "R$188",
-      "date": "05/99",
-      "authId": "login",
-      "id": 4
     }
   ]
 }

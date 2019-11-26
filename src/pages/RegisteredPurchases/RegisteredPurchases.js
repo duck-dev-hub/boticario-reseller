@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Axios from 'axios';
 import { Main, Title } from './styles';
 import Container from '../../layout/container';
@@ -30,6 +31,9 @@ const RegisteredPurchases = () => {
 
   return (
     <>
+      {useSelector(state =>
+        state.userLogged === false ? <Redirect to="/login" /> : null,
+      )}
       <MainHeader />
       <Main>
         <Container>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Axios from 'axios';
 import { Main, Title, Card } from './styles';
@@ -38,34 +39,36 @@ const Account = () => {
     try {
       const response = await Axios.get(endpoint);
       const { data } = response;
-      const result = data
-        .map(({ price }, index) => {
-          const formated = price.replace(/\D/g, '');
-          if (index === data.length - 1) {
-            setLastBuy(
-              (
-                (parseInt(price.replace(/\D/g, ''), 10) * 10) /
-                100
-              ).toLocaleString('pt-BR', {
-                minimumFractionDigits: 2,
-                style: 'currency',
-                currency: 'BRL',
-              }),
-            );
-          }
-          return parseInt(formated, 10);
-        })
-        .reduce(
-          (accumulator, currentValue) => accumulator + currentValue,
+      if (data.length) {
+        const result = data
+          .map(({ price }, index) => {
+            const formated = price.replace(/\D/g, '');
+            if (index === data.length - 1) {
+              setLastBuy(
+                (
+                  (parseInt(price.replace(/\D/g, ''), 10) * 10) /
+                  100
+                ).toLocaleString('pt-BR', {
+                  minimumFractionDigits: 2,
+                  style: 'currency',
+                  currency: 'BRL',
+                }),
+              );
+            }
+            return parseInt(formated, 10);
+          })
+          .reduce(
+            (accumulator, currentValue) => accumulator + currentValue,
+          );
+        const calc = (result * 10) / 100;
+        return setSumCashback(
+          calc.toLocaleString('pt-BR', {
+            minimumFractionDigits: 2,
+            style: 'currency',
+            currency: 'BRL',
+          }),
         );
-      const calc = (result * 10) / 100;
-      return setSumCashback(
-        calc.toLocaleString('pt-BR', {
-          minimumFractionDigits: 2,
-          style: 'currency',
-          currency: 'BRL',
-        }),
-      );
+      }
     } catch (error) {
       console.log(error);
     }
@@ -79,6 +82,9 @@ const Account = () => {
 
   return (
     <>
+      {useSelector(state =>
+        state.userLogged === false ? <Redirect to="/login" /> : null,
+      )}
       <MainHeader />
       <Main>
         <Container>
@@ -96,16 +102,20 @@ const Account = () => {
               <dt>Senha:</dt>
               <dd>{password}</dd>
             </dl>
-            <dl>
-              <dt className="last-cashback">
-                Cashback última compra:
-              </dt>
-              <dd>{lastBuy}</dd>
-            </dl>
-            <dl>
-              <dt className="cashback">Cashback Acumulado:</dt>
-              <dd>{sumCashback}</dd>
-            </dl>
+            {sumCashback && (
+              <>
+                <dl>
+                  <dt className="last-cashback">
+                    Cashback última compra:
+                  </dt>
+                  <dd>{lastBuy}</dd>
+                </dl>
+                <dl>
+                  <dt className="cashback">Cashback Acumulado:</dt>
+                  <dd>{sumCashback}</dd>
+                </dl>
+              </>
+            )}
           </Card>
         </Container>
       </Main>

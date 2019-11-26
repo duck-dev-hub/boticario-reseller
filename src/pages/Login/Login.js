@@ -11,11 +11,11 @@ import MainFooter from '../../containers/MainFooter';
 const Login = () => {
   return (
     <>
+      {useSelector(state =>
+        state.userLogged === true ? <Redirect to="/" /> : null,
+      )}
       <MainHeader />
       <Main>
-        {useSelector(state =>
-          state.userLogged === true ? <Redirect to="/" /> : null,
-        )}
         <FormLogin />
       </Main>
       <MainFooter />
