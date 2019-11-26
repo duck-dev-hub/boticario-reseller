@@ -1,26 +1,25 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Container from './styles';
 
-import { Main } from './styles';
-
-import FormLogin from '../../containers/FormLogin/FormLogin';
+import FormShipping from '../../containers/FormShipping';
 import MainHeader from '../../containers/MainHeader';
 import MainFooter from '../../containers/MainFooter';
 
-const Login = () => {
+const Shoppings = () => {
   return (
     <>
       {useSelector(state =>
-        state.userLogged === true ? <Redirect to="/" /> : null,
+        state.userLogged === false ? <Redirect to="/login" /> : null,
       )}
       <MainHeader />
-      <Main>
-        <FormLogin />
-      </Main>
+      <Container>
+        <FormShipping />
+      </Container>
       <MainFooter />
     </>
   );
 };
 
-export default Login;
+export default Shoppings;

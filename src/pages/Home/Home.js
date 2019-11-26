@@ -29,10 +29,16 @@ const Home = () => {
               casa.
             </Text>
             <MainButton
-              Primary
+              primary="true"
               content="Seja uma revendedora"
               as={Link}
               to="/cadastro"
+            />
+            <MainButton
+              secondary="true"
+              content="Já sou revendedora"
+              as={Link}
+              to="/login"
             />
           </Content>
         </Container>

@@ -13,7 +13,14 @@ const Input = styled.input`
     font-size: 10px;
     color: #e3e3e5;
   }
-  ${({ Icon }) => Icon && css``}
+  /* }
+  ${({ box }) =>
+    box &&
+    css`
+      border-bottom: none;
+      background-color: var(--color-white);
+      border-radius: var(--gap-small);
+    `} */
 `;
 
 export default Input;

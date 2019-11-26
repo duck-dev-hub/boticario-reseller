@@ -1,19 +1,33 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../store';
+
+import ScrollToTop from '../helpers/scrollToTop';
 
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import UserRegistration from '../pages/UserRegistration';
+import Shoppings from '../pages/Shoppings';
+import RegisteredPurchases from '../pages/RegisteredPurchases';
+import Account from '../pages/Account';
 
 const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Route path="/" exact component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/cadastro" component={UserRegistration} />
+        <ScrollToTop />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/login" component={Login} />
+          <Route path="/cadastro" component={UserRegistration} />
+          <Route path="/compras" component={Shoppings} />
+          <Route path="/minha-conta" component={Account} />
+          <Route
+            path="/minhas-compras"
+            component={RegisteredPurchases}
+          />
+        </Switch>
       </BrowserRouter>
     </Provider>
   );

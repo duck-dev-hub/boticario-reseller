@@ -6,4 +6,5 @@ const MainButton = ({ onClick, type, title, content, ...props }) => (
     {content}
   </Button>
 );
+
 export default MainButton;

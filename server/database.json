@@ -1,10 +1,18 @@
 {
   "shopping": [
     {
-      "id": 1,
-      "name": "matrix",
-      "price": 90.16229283763353,
-      "date": "10/01/2015"
+      "code": "999x",
+      "price": "R$100",
+      "date": "09/19",
+      "authId": "login",
+      "id": 1
+    },
+    {
+      "code": "999xx",
+      "price": "R$88",
+      "date": "08/19",
+      "authId": "login",
+      "id": 2
     }
   ]
 }

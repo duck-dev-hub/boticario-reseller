@@ -5,11 +5,13 @@ import Figure from '../../objects/Figure';
 
 import LogoBot from '../LogoBot';
 
-const FormModal = ({ title, children, onSubmit }) => (
+const FormModal = ({ title, children, onSubmit, Logo }) => (
   <Form onSubmit={onSubmit}>
-    <Figure>
-      <LogoBot />
-    </Figure>
+    {Logo ? (
+      <Figure>
+        <LogoBot />
+      </Figure>
+    ) : null}
     <Title>{title}</Title>
     {children}
   </Form>
