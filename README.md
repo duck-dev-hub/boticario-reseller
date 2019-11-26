@@ -1,7 +1,6 @@
 # Desáfio Grupo Boticário
 
-## Requerimentos
-
+## Requesitos
 
 Para começar primeiro, você deve clonar ou baixar o repositório.
 
@@ -19,7 +18,7 @@ Instale toda as dependências com o comando abaixo.
 
 Precisará de dois terminais, um para rodar o server das `API` e outro para o `webpack`, para rodar toda a aplicação localmente.
 
-Assim que estiver instalados todas as depencias inicie o server local das `API` com o comando: 
+Assim que estiver instalados todas as depencias inicie o server das `API` com o comando: 
 
 ` 
   yarn run start-auth
@@ -75,6 +74,6 @@ O Problema é muito complexo para ser realizado somente do front-end, então com
 
 * `/auth/login/shopping`: database para guardas informações das compras cadastradas.
 
-* `/auth/login/users`: database para guardas informações de novos usuários.
+* `/auth/login/users`: database para guardas informações dos usuários.
 
-O desáfio em si precisava de um back-end muito complexo, porém, fiz tudo oque estava ao meu alcance pois sou front, não back. Por conta dessa limitação deixei em aberto a questão de validações do nova compra que tinha que haver 3 estados `Em validação`, `Reprovado` e `Aprovado`. Isso é uma informação que teria que vir de uma API.
+O desáfio em si precisava de um back-end muito complexo, porém, fiz tudo o que estava ao meu alcance pois sou front, não back. Por conta dessa limitação deixei em aberto a questão de validações do nova compra que tinha que haver 3 estados `Em validação`, `Reprovado` e `Aprovado`. Isso é uma informação que teria que vir de uma API.
