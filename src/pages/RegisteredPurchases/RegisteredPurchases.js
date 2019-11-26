@@ -35,13 +35,21 @@ const RegisteredPurchases = () => {
         <Container>
           <Title>Minhas Compras</Title>
           {shippings ? (
-            <ShippingsCards shippings={shippings} />
+            <>
+              <ShippingsCards shippings={shippings} />
+              <MainButton
+                content="Cadastrar Compras"
+                as={Link}
+                to="/compras"
+                primary="true"
+              />
+            </>
           ) : (
             <MainButton
               content="Cadastrar Compras"
               as={Link}
               to="/compras"
-              Primary
+              primary="true"
             />
           )}
         </Container>

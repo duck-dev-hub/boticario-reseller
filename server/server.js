@@ -102,6 +102,30 @@ server.post('/auth/login', (req, res) => {
   res.status(200).json({ ACCESS_TOKEN });
 });
 
+server.post('/auth/login', (req, res) => {
+  console.log('login endpoint called; request body:');
+
+  const { email, password } = req.body;
+
+  if (isAuthenticated({ email, password }) === false) {
+    const status = 401;
+    const message = 'Email ou senha incorretos';
+    res.status(status).json({ status, message });
+    return;
+  }
+
+  const ACCESS_TOKEN = createToken({ email, password });
+  console.log(`Access Token:${ACCESS_TOKEN}`);
+  res.status(200).json({ ACCESS_TOKEN });
+});
+
+server.use('/auth/login/users', (req, res) => {
+  const data = JSON.parse(
+    fs.readFileSync('./server/users.json', 'UTF-8')
+  )
+  res.status(200).json(data.users);
+ });
+
 server.use(/^(?!\/auth).*$/, (req, res, next) => {
   if (
     req.headers.authorization === undefined ||
@@ -134,6 +158,7 @@ server.use(/^(?!\/auth).*$/, (req, res, next) => {
     res.status(status).json({ status, message });
   }
 });
+
 
 server.use(router);
 

@@ -9,7 +9,7 @@ export const Main = styled.main`
   min-height: 80vh;
   ${flexCentered};
   & ${Button} {
-    margin-top: var(--gap-great);
+    margin: var(--gap-great) 0;
   }
 `;
 

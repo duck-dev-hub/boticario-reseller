@@ -71,7 +71,7 @@ const FormRegistration = () => {
         <Redirect to="/login" />
       ) : (
         <FormModal
-          Logo
+          Logo="true"
           onSubmit={ev => handleRegistry(ev)}
           title="Cadastro"
         >
@@ -79,7 +79,7 @@ const FormRegistration = () => {
           <InputField
             type="Text"
             placeholder="Digite seu nome"
-            required="required"
+            required={true}
             onChange={e => setName(e.target.value)}
           />
           <InputName content="CPF" />
@@ -89,44 +89,48 @@ const FormRegistration = () => {
             onKeyUp={e => maskField(e.target, '000.000.000-00', e)}
             onChange={e => setCpf(e.target.value)}
             maxLength="14"
-            required="required"
+            required={true}
           />
           <InputName content="Email" />
           <InputField
             type="email"
             placeholder="exemplo@exemplo.com.br"
             onChange={e => setEmail(e.target.value)}
-            required="required"
+            required={true}
           />
           <InputName content="Senha" />
           <InputField
             type="password"
             placeholder="************"
             onChange={e => setPassword(e.target.value)}
-            required="required"
+            required={true}
           />
           <InputName content="Confirmar senha" />
           <InputField
             type="password"
             placeholder="************"
             onChange={e => setConfirmPassword(e.target.value)}
-            required
+            required={true}
           />
-          <MainButton Primary type="submit" content="Cadastrar" />
+          <MainButton
+            Primary="true"
+            type="submit"
+            content="Cadastrar"
+          />
           <LinkForm to="/login" content="Entrar" />
           <MessageModal
             className={activeError}
             content={message}
             activeError={activeError}
             setActiveError={setActiveError}
-            Error
+            Error="true"
           />
           <MessageModal
             className={activeSuccess}
             content={message}
             activeSuccess={activeSuccess}
             setActiveSuccess={setActiveSuccess}
-            Success
+            Success="true"
           />
         </FormModal>
       )}

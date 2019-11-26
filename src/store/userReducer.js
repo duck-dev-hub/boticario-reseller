@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  userEmail: '',
+  userEmail: 'roreis99@gmail.com',
   userToken: '',
   userLogged: true,
 };

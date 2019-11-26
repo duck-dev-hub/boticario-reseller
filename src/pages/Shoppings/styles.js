@@ -7,6 +7,7 @@ const Container = styled.main`
   width: 100vw;
   height: 80vh;
   ${flexCentered};
+  flex-direction: column;
   margin-top: ${rem('70px')};
   ${Button} {
     margin-top: ${rem('25px')};
