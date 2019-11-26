@@ -168,4 +168,5 @@ server.listen(8000, () => {
   console.log('http://localhost:8000/auth/login');
   console.log('http://localhost:8000/auth/register');
   console.log('http://localhost:8000/auth/login/shopping');
+  console.log('http://localhost:8000/auth/login/users');
 });
