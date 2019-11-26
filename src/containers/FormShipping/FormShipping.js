@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NumberFormat from 'react-number-format';
 import Axios from 'axios';
 
+import LinkForm from '../../components/LinkForm';
 import FormModal from '../../components/FormModal/FormModal';
 import InputName from '../../components/InputName';
 import InputField from '../../components/InputField';
@@ -87,7 +88,7 @@ const FormShipping = () => {
         as={NumberFormat}
         thousandsGroupStyle="pt-BR"
         prefix="R$"
-        thousandSeparator
+        thousandSeparator={true}
       />
       <InputName content="Data da compra:" />
       <InputField
@@ -99,20 +100,21 @@ const FormShipping = () => {
         placeholder="/MM/YY"
         mask={['M', 'M', 'Y', 'Y']}
       />
-      <MainButton Primary type="submit" content="Cadastrar" />
+      <MainButton primary="true" type="submit" content="Cadastrar" />
+      <LinkForm to="/minhas-compras" content="Ver Minhas Compras" />
       <MessageModal
         className={activeError}
         content={message}
         activeError={activeError}
         setActiveError={setActiveError}
-        Error
+        Error="true"
       />
       <MessageModal
         className={activeSuccess}
         content={message}
         activeSuccess={activeSuccess}
         setActiveSuccess={setActiveSuccess}
-        Success
+        Success="true"
       />
     </FormModal>
   );

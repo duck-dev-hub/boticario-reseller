@@ -120,10 +120,10 @@ server.post('/auth/login', (req, res) => {
 });
 
 server.use('/auth/login/users', (req, res) => {
-  const users = JSON.parse(
+  const data = JSON.parse(
     fs.readFileSync('./server/users.json', 'UTF-8')
   )
-  res.status(200).json(users);
+  res.status(200).json(data.users);
  });
 
 server.use(/^(?!\/auth).*$/, (req, res, next) => {

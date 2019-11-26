@@ -50,7 +50,11 @@ const FormLogin = () => {
   };
 
   return (
-    <FormModal onSubmit={ev => handleLogin(ev)} title="Login" Logo>
+    <FormModal
+      onSubmit={ev => handleLogin(ev)}
+      title="Login"
+      Logo="true"
+    >
       <InputName content="Email" />
       <InputField
         type="email"
@@ -64,21 +68,21 @@ const FormLogin = () => {
         onChange={ev => setPassword(ev.target.value)}
       />
       <LinkForm to="/" content="Esqueceu sua senha?" right="true" />
-      <MainButton Primary type="submit" content="Entrar" />
+      <MainButton primary="true" type="submit" content="Entrar" />
       <LinkForm to="/cadastro" content="Cadastro" />
       <MessageModal
         className={activeError}
         content={message}
         activeError={activeError}
         setActiveError={setActiveError}
-        Error
+        Error="true"
       />
       <MessageModal
         className={activeSuccess}
         content={message}
         activeSuccess={activeSuccess}
         setActiveSuccess={setActiveSuccess}
-        Success
+        Success="true"
       />
     </FormModal>
   );

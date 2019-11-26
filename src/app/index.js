@@ -10,6 +10,7 @@ import Login from '../pages/Login';
 import UserRegistration from '../pages/UserRegistration';
 import Shoppings from '../pages/Shoppings';
 import RegisteredPurchases from '../pages/RegisteredPurchases';
+import Account from '../pages/Account';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/login" component={Login} />
           <Route path="/cadastro" component={UserRegistration} />
           <Route path="/compras" component={Shoppings} />
+          <Route path="/minha-conta" component={Account} />
           <Route
             path="/minhas-compras"
             component={RegisteredPurchases}

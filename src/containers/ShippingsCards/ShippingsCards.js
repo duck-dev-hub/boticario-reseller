@@ -1,4 +1,3 @@
-/* eslint-disable radix */
 import React from 'react';
 import shortid from 'shortid';
 
@@ -6,21 +5,20 @@ import { List, Item } from './styles';
 
 const ShippingsCards = ({ shippings }) => {
   const cashback = value => {
-    // eslint-disable-next-line no-useless-escape
-    const number = value.replace(/[^0-9\.]+/g, '');
-    const toInt = (parseInt(number) * 10) / 100;
-    return toInt.toLocaleString({
+    const number = value.replace(/\D/g, '');
+    const toInt = (parseInt(number, 10) * 10) / 100;
+    return toInt.toLocaleString('pt-BR', {
       minimumFractionDigits: 2,
       style: 'currency',
-      currency: 'pt-BR',
+      currency: 'BRL',
     });
   };
 
   return (
-    <List key={shortid.generate()}>
+    <List>
       {shippings &&
         shippings.map(({ code, price, date }) => (
-          <Item>
+          <Item key={shortid.generate()}>
             <dl>
               <dt>Code:</dt>
               <dd>{code}</dd>
@@ -35,7 +33,7 @@ const ShippingsCards = ({ shippings }) => {
             </dl>
             <dl>
               <dt className="cashback">Cashback:</dt>
-              <dd>{`R$${cashback(price)}`}</dd>
+              <dd>{cashback(price)}</dd>
             </dl>
           </Item>
         ))}
