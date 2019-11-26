@@ -71,6 +71,7 @@ const FormRegistration = () => {
         <Redirect to="/login" />
       ) : (
         <FormModal
+          Logo
           onSubmit={ev => handleRegistry(ev)}
           title="Cadastro"
         >

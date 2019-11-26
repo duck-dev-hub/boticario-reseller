@@ -5,6 +5,7 @@ const GlobalColors = css`
     --color-black: #000;
     --color-white: #ffff;
 
+    --color-gray-lighter-2: #f6f6f7;
     --color-gray-dark: #6d6d6d;
     --color-gray-lighter: #d9d9d9;
 
