@@ -1,1 +1,11 @@
-{"users":[{"id":1,"name":"exemple","cpf":"000.000.000-55","email":"exemple@email.com","password":"12345678"},{"id":2,"name":"rodrigo Reis","cpf":"576.566.858-10","email":"roreis99@gmail.com","password":"cocodevaca"},{"id":3,"name":"Rodrigo Reis","cpf":"000.000.000-0","email":"br.rodrigoreis@gmail.com","password":"cocodevaca"}]}
+{ 
+  "users":[ 
+     { 
+        "id":1,
+        "name":"exemple",
+        "cpf":"000.000.000-55",
+        "email":"exemple@email.com",
+        "password":"12345678"
+     }
+  ]
+}
