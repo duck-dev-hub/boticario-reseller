@@ -1,20 +1,70 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NumberFormat from 'react-number-format';
+import Axios from 'axios';
 
 import FormModal from '../../components/FormModal/FormModal';
 import InputName from '../../components/InputName';
 import InputField from '../../components/InputField';
 import MainButton from '../../components/MainButton';
+import MessageModal from '../../components/MessageModal';
 
 const FormShipping = () => {
   const [code, setCode] = useState();
   const [price, setPrice] = useState();
   const [date, setDate] = useState();
+  const [message, setMessage] = useState('');
+  const [activeError, setActiveError] = useState('');
+  const [activeSuccess, setActiveSuccess] = useState('');
+  const [shipping, setShippings] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const handleAddShopping = ev => {
-    ev.preventDefault();
-    console.log(code, price, date);
+  const fetchData = async () => {
+    const endpoint = 'http://localhost:8000/auth/login/shopping';
+    const response = await Axios.get(endpoint);
+    const { data } = response;
+    return setShippings(data);
   };
+
+  const handleAddShopping = async ev => {
+    ev.preventDefault();
+    setLoading(true);
+    const verification =
+      shipping.findIndex(test => test.code === code) !== -1;
+    console.log(verification);
+    const endpoint = 'http://localhost:8000/auth/login/shopping';
+    try {
+      if (!verification) {
+        const response = await Axios.post(endpoint, {
+          code,
+          price,
+          date,
+        });
+        const { data } = response;
+        setLoading(false);
+        setActiveError('');
+        setActiveSuccess('-active');
+        setMessage('Compra cadastrada');
+        console.log(data);
+        return data;
+      }
+      setActiveSuccess('');
+      setActiveError('-active');
+      setMessage('Compra já cadastrada!');
+    } catch (error) {
+      console.log('bar', error);
+      setActiveSuccess('');
+      setActiveError('-active');
+      setMessage('Erro! Tente novamente');
+    }
+    return false;
+  };
+
+  useEffect(() => {
+    if (!loading) {
+      fetchData();
+      setLoading(true);
+    }
+  });
 
   return (
     <FormModal
@@ -50,6 +100,20 @@ const FormShipping = () => {
         mask={['M', 'M', 'Y', 'Y']}
       />
       <MainButton Primary type="submit" content="Cadastrar" />
+      <MessageModal
+        className={activeError}
+        content={message}
+        activeError={activeError}
+        setActiveError={setActiveError}
+        Error
+      />
+      <MessageModal
+        className={activeSuccess}
+        content={message}
+        activeSuccess={activeSuccess}
+        setActiveSuccess={setActiveSuccess}
+        Success
+      />
     </FormModal>
   );
 };

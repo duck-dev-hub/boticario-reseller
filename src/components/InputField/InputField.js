@@ -9,6 +9,7 @@ const InputField = ({
   onKeyUp,
   onChange,
   maxLength,
+  value,
   pattern,
   ...props
 }) => {
@@ -23,6 +24,7 @@ const InputField = ({
       onChange={onChange}
       maxLength={maxLength}
       pattern={pattern}
+      value={value}
     />
   );
 };
