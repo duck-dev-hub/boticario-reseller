@@ -77,3 +77,13 @@ O Problema é muito complexo para ser realizado somente do front-end, então com
 * `/auth/login/users`: database para guardas informações dos usuários.
 
 O desáfio em si precisava de um back-end muito complexo, porém, fiz tudo o que estava ao meu alcance pois sou front, não back. Por conta dessa limitação deixei em aberto a questão de validações do nova compra que tinha que haver 3 estados `Em validação`, `Reprovado` e `Aprovado`. Isso é uma informação que teria que vir de uma API.
+
+## Considerações
+
+* Como nenhum layout foi disponibilizado, tentei imitar o máximo possível do site das revendedoras do boticário. 
+
+* Não realizei o layout `Desktop`, somente `Mobile` porque o intuito em si do projeto é demonstrar a aplicação, e lembrando que o foco é sempre mobile-first.
+
+* Não realizei um super tratamento dos `input`.
+
+* E fim. :smiley:	
