@@ -28,6 +28,9 @@ const MainMenu = ({ className, onClick }) => (
             <Item>
               <Link to="/compras">Cadastrar compras</Link>
             </Item>
+            <Item>
+              <Link to="/minhas-compras">Minhas Compras</Link>
+            </Item>
             <Item onClick={onClick}>Sair</Item>
           </>
         ),

@@ -9,6 +9,7 @@ import Home from '../pages/Home';
 import Login from '../pages/Login';
 import UserRegistration from '../pages/UserRegistration';
 import Shoppings from '../pages/Shoppings';
+import RegisteredPurchases from '../pages/RegisteredPurchases';
 
 const App = () => {
   return (
@@ -20,6 +21,10 @@ const App = () => {
           <Route path="/login" component={Login} />
           <Route path="/cadastro" component={UserRegistration} />
           <Route path="/compras" component={Shoppings} />
+          <Route
+            path="/minhas-compras"
+            component={RegisteredPurchases}
+          />
         </Switch>
       </BrowserRouter>
     </Provider>
