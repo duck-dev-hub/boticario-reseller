@@ -86,4 +86,21 @@ O desáfio em si precisava de um back-end muito complexo, porém, fiz tudo o que
 
 * Não realizei um super tratamento dos `input`.
 
+* Seguindo todos os conceitos de design patters e arquiteturas front-ends com BEM, SMACSS, ITCSS e RSCSS.
+
 * E fim. :smiley:	
+
+## Desenvolvido com:
+
+* [React](https://reactjs.org/) 
+
+* [Redux](https://redux.js.org/) 
+
+* [Styled Components](https://www.styled-components.com/)
+
+* [Webpack](https://webpack.js.org/) 
+
+* [ESlint](https://eslint.org/) 
+
+* [Prettier](https://prettier.io/) 
+
