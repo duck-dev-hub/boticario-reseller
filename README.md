@@ -104,3 +104,5 @@ O desáfio em si precisava de um back-end muito complexo, porém, fiz tudo o que
 
 * [Prettier](https://prettier.io/) 
 
+* [json-server](https://github.com/typicode/json-server) 
+
