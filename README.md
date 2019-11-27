@@ -14,7 +14,7 @@ Instale toda as dependências com o comando abaixo.
 
 `yarn install`
 
-## Íniciar o projeto
+## Iniciar o projeto
 
 Precisará de dois terminais, um para rodar o server das `API` e outro para o `webpack`, para rodar toda a aplicação localmente.
 
