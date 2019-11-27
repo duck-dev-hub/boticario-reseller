@@ -68,7 +68,7 @@ desenvolvedor, no caso seus dados
 
 O Problema é muito complexo para ser realizado somente do front-end, então com o pouco conhecimento que possuo de back consegui criar quatro `endpoints`. Todos feitos em `node` com `json-server`, segue os endpoint: 
 
-* `/auth/login`: para relizar login com autenticação JWT, endpoint feito em node.
+* `/auth/login`: para relizar login com autenticação JWT.
 
 * `/auth/register`: Cadastro de um novo usuário com todas validações para ver se o mesmo já existe na base de dados.
 
