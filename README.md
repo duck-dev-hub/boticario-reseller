@@ -88,6 +88,8 @@ O desafio em si precisava de um back-end muito complexo, porém, fiz tudo o que 
 
 * Seguindo todos os conceitos de design patters e arquiteturas front-ends com BEM, SMACSS, ITCSS e RSCSS.
 
+* Foi aplicado o cashback fixo de 10% por cada compra.
+
 * E fim. :smiley:	
 
 ## Desenvolvido com:
