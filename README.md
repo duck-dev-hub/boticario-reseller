@@ -106,3 +106,5 @@ O desáfio em si precisava de um back-end muito complexo, porém, fiz tudo o que
 
 * [json-server](https://github.com/typicode/json-server) 
 
+* [jwt](https://jwt.io/) 
+
