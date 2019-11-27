@@ -1,4 +1,4 @@
-# Desáfio Grupo Boticário
+# Desafio Grupo Boticário
 
 ## Requesitos
 
@@ -49,7 +49,7 @@ suas compras e acompanhar o retorno de cashback de cada um.
 
 ## A Solução
 
-Foi criado uma aplicação que possui todas os requesitos do desáfio como:
+Foi criado uma aplicação que possui todas os requesitos do desafio como:
 
 * Tela de cadastro de um novo revendedor(a) solicitando Nome completo, CPF, e-
 mail e senha;
@@ -64,7 +64,7 @@ todas as vendas do revendedor(a);
 * Tela de informações do sistema, nesta tela terá nome, e-mail e outros dados do
 desenvolvedor, no caso seus dados
 
-## Problemas do desáfio
+## Problemas do desafio
 
 O Problema é muito complexo para ser realizado somente do front-end, então com o pouco conhecimento que possuo de back consegui criar quatro `endpoints`. Todos feitos em `node` com `json-server`, segue os endpoint: 
 
@@ -76,7 +76,7 @@ O Problema é muito complexo para ser realizado somente do front-end, então com
 
 * `/auth/login/users`: database para guardas informações dos usuários.
 
-O desáfio em si precisava de um back-end muito complexo, porém, fiz tudo o que estava ao meu alcance pois sou front, não back. Por conta dessa limitação deixei em aberto a questão de validações do nova compra que tinha que haver 3 estados `Em validação`, `Reprovado` e `Aprovado`. Isso é uma informação que teria que vir de uma API.
+O desafio em si precisava de um back-end muito complexo, porém, fiz tudo o que estava ao meu alcance pois sou front, não back. Por conta dessa limitação deixei em aberto a questão de validações do nova compra que tinha que haver 3 estados `Em validação`, `Reprovado` e `Aprovado`. Isso é uma informação que teria que vir de uma API.
 
 ## Considerações
 
