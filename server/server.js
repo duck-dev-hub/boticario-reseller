@@ -133,7 +133,7 @@ server.use(/^(?!\/auth).*$/, (req, res, next) => {
   ) {
     const status = 401;
     const message = 'Error in authorization format';
-    
+  
     res.status(status).json({ status, message });
     return;
   }

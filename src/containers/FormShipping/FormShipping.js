@@ -31,7 +31,6 @@ const FormShipping = () => {
     setLoading(true);
     const verification =
       shipping.findIndex(test => test.code === code) !== -1;
-    console.log(verification);
     const endpoint = 'http://localhost:8000/auth/login/shopping';
     try {
       if (!verification) {
