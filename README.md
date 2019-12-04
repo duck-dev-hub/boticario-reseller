@@ -1,4 +1,4 @@
-# Desafio Grupo Boticário
+#  Revendedora O Boticário
 
 ## Requesitos
 
