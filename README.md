@@ -1,4 +1,4 @@
-#  Revendedora O Boticário
+#  Revendedor oBoticário
 
 ## Requesitos
 
