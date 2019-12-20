@@ -14,6 +14,8 @@ You need two terminals
 
 `
   yarn run dev(front-front)
+`
+`
   yarn run start-auth(back-end)
 `
 
