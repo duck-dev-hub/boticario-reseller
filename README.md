@@ -10,8 +10,11 @@ App oBoticário Reseller
 
 ## Usage 
 
+You need two terminals 
+
 `
-  yarn run dev
+  yarn run dev(front-front)
+  yarn run start-auth(back-end)
 `
 
 ## Show your support
