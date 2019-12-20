@@ -13,9 +13,8 @@ App oBoticário Reseller
 You need two terminals 
 
 `
-  yarn run dev(front-front)
+  yarn run dev(front-end)
 `
-
 
 `
   yarn run start-auth(back-end)
